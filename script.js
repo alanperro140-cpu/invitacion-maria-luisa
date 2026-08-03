@@ -8,55 +8,53 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainContent = document.getElementById("mainContent");
   const bgMusic = document.getElementById("bgMusic");
 
-  // 1. PRIMER CLIC: Iniciar Video + Música al mismo tiempo
+  // 1. PRIMER CLIC: Inicia el video mudo y la música dancingqueen.mp3
   if (startMediaBtn) {
     startMediaBtn.addEventListener("click", () => {
-      // Ocultar botón de inicio
+      // Ocultar pantalla inicial
       startOverlay.style.display = "none";
 
-      // Reproducir video
+      // Asegurar que el botón de entrada siga oculto durante el video
+      if (enterContainer) {
+        enterContainer.style.display = "none";
+      }
+
+      // Reproducir video mudo
       if (introVideo) {
+        introVideo.muted = true;
         introVideo.play().catch(e => console.log(e));
       }
 
-      // Reproducir música
+      // Reproducir la canción Dancing Queen
       if (bgMusic) {
         bgMusic.play().catch(e => console.log(e));
       }
+    });
+  }
 
-      // Mostrar el botón final de "Entrar a la celebración"
+  // 2. CUANDO EL VIDEO TERMINA: Se muestra el segundo botón
+  if (introVideo) {
+    introVideo.addEventListener("ended", () => {
       if (enterContainer) {
         enterContainer.style.display = "flex";
       }
     });
   }
 
-  // Si el video finaliza solo, pasamos automáticamente a la invitación
-  if (introVideo) {
-    introVideo.addEventListener("ended", () => {
-      transicionAMain();
-    });
-  }
-
-  // 2. SEGUNDO CLIC: Entrar a la invitación (la música sigue reproduciéndose)
+  // 3. SEGUNDO CLIC: Pasa a la tarjeta de invitación
   if (enterButton) {
     enterButton.addEventListener("click", () => {
-      transicionAMain();
+      // Ocultar video
+      loader.style.display = "none";
+
+      // Mostrar invitación
+      mainContent.style.display = "block";
+
+      // Mantener la música sonando sin interrumpir
+      if (bgMusic && bgMusic.paused) {
+        bgMusic.play().catch(e => console.log(e));
+      }
     });
-  }
-
-  function transicionAMain() {
-    // Pausar video y ocultar loader
-    if (introVideo) introVideo.pause();
-    loader.style.display = "none";
-
-    // Mostrar el contenido de la invitación
-    mainContent.style.display = "block";
-
-    // Garantizar que la música continúe si por algo se pausó
-    if (bgMusic && bgMusic.paused) {
-      bgMusic.play().catch(e => console.log(e));
-    }
   }
 
   // =========================================
