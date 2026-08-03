@@ -1,282 +1,75 @@
-const video = document.getElementById("introVideo");
-const loader = document.getElementById("loader");
-const enterContainer = document.getElementById("enterContainer");
-const enterButton = document.getElementById("enterButton");
-const mainContent = document.getElementById("mainContent");
-const music = document.getElementById("introMusic");
+document.addEventListener("DOMContentLoaded", () => {
+  const introVideo = document.getElementById("introVideo");
+  const enterContainer = document.getElementById("enterContainer");
+  const enterButton = document.getElementById("enterButton");
+  const loader = document.getElementById("loader");
+  const mainContent = document.getElementById("mainContent");
+  const bgMusic = document.getElementById("bgMusic");
 
-let countdownStarted = false;
-
-/* =========================================
-MÚSICA
-========================================= */
-
-function intentarMusica() {
-
-```
-if (!music) return;
-
-music.volume = 0.35;
-
-const promesa = music.play();
-
-if (promesa !== undefined) {
-
-    promesa.catch(() => {
-
-        console.log("El navegador bloqueó el autoplay.");
-
+  // Mostrar el botón cuando termine el video intro
+  if (introVideo) {
+    introVideo.addEventListener("ended", () => {
+      enterContainer.style.display = "flex";
     });
 
-}
-```
+    // Respaldos en caso de que el video no reproduzca o no dispare el evento 'ended'
+    introVideo.addEventListener("error", () => {
+      enterContainer.style.display = "flex";
+    });
 
-}
-
-/* =========================================
-INICIO
-========================================= */
-
-window.addEventListener("load", () => {
-
-```
-intentarMusica();
-
-/*
- * Intentamos iniciar el video.
- * Si el navegador lo bloquea, el usuario
- * todavía podrá interactuar con la página.
- */
-
-if (video) {
-
-    const videoPromise = video.play();
-
-    if (videoPromise !== undefined) {
-
-        videoPromise.catch(() => {
-
-            console.log("El navegador bloqueó el autoplay del video.");
-
-        });
-
-    }
-
-}
-```
-
-});
-
-/* =========================================
-CUANDO TERMINA EL VIDEO
-========================================= */
-
-if (video) {
-
-```
-video.addEventListener("ended", () => {
-
-    mostrarBotonEntrada();
-
-});
-```
-
-}
-
-/* =========================================
-ERROR DEL VIDEO
-========================================= */
-
-if (video) {
-
-```
-video.addEventListener("error", () => {
-
-    console.log("No se pudo cargar video.mp4.");
-
-    mostrarBotonEntrada();
-
-});
-```
-
-}
-
-/* =========================================
-MOSTRAR BOTÓN
-========================================= */
-
-function mostrarBotonEntrada() {
-
-```
-if (!enterContainer) return;
-
-enterContainer.style.display = "flex";
-```
-
-}
-
-/* =========================================
-ENTRAR A LA INVITACIÓN
-========================================= */
-
-if (enterButton) {
-
-```
-enterButton.addEventListener("click", () => {
-
-    /*
-     * La interacción del usuario permite
-     * intentar reproducir la música.
-     */
-
-    intentarMusica();
-
-
-    /*
-     * Animación de salida
-     */
-
-    loader.style.transition = "opacity .8s ease";
-    loader.style.opacity = "0";
-
-
+    // Si pasan 8 segundos y no ha aparecido el botón, mostrarlo automáticamente
     setTimeout(() => {
+      if (enterContainer.style.display !== "flex") {
+        enterContainer.style.display = "flex";
+      }
+    }, 8000);
+  }
 
-        loader.style.display = "none";
+  // Transición al hacer clic en ENTRAR
+  if (enterButton) {
+    enterButton.addEventListener("click", () => {
+      // 1. Ocultar la pantalla de intro / video
+      loader.style.display = "none";
 
-        mainContent.style.display = "block";
+      // 2. Mostrar el contenido principal
+      mainContent.style.display = "block";
 
-        iniciarCuentaRegresiva();
-
-        window.scrollTo({
-            top: 0,
-            behavior: "instant"
+      // 3. Reproducir música de fondo
+      if (bgMusic) {
+        bgMusic.play().catch((error) => {
+          console.log("Autoplay bloqueado por el navegador:", error);
         });
+      }
+    });
+  }
 
-    }, 800);
+  // =========================================
+  // CUENTA REGRESIVA (10 de Octubre)
+  // =========================================
+  const eventDate = new Date("October 10, 2026 14:00:00").getTime();
 
-});
-```
+  const updateCountdown = () => {
+    const now = new Date().getTime();
+    const difference = eventDate - now;
 
-}
+    if (difference > 0) {
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-/* =========================================
-CUENTA REGRESIVA
-========================================= */
-
-function iniciarCuentaRegresiva() {
-
-```
-if (countdownStarted) return;
-
-countdownStarted = true;
-
-
-/*
- * Evento:
- * Sábado 10 de octubre de 2026
- * 2:00 PM
- *
- * La fecha utiliza la hora local
- * del dispositivo del visitante.
- */
-
-const fechaEvento = new Date(
-    "October 10, 2026 14:00:00"
-).getTime();
-
-
-function actualizarCuentaRegresiva() {
-
-    const ahora = new Date().getTime();
-
-    const diferencia = fechaEvento - ahora;
-
-
-    if (diferencia <= 0) {
-
-        actualizarNumero("days", 0);
-        actualizarNumero("hours", 0);
-        actualizarNumero("minutes", 0);
-        actualizarNumero("seconds", 0);
-
-        return;
-
+      document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+      document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+      document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+      document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+    } else {
+      document.getElementById("days").innerText = "00";
+      document.getElementById("hours").innerText = "00";
+      document.getElementById("minutes").innerText = "00";
+      document.getElementById("seconds").innerText = "00";
     }
+  };
 
-
-    const dias = Math.floor(
-        diferencia /
-        (1000 * 60 * 60 * 24)
-    );
-
-
-    const horas = Math.floor(
-        (diferencia %
-        (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
-    );
-
-
-    const minutos = Math.floor(
-        (diferencia %
-        (1000 * 60 * 60)) /
-        (1000 * 60)
-    );
-
-
-    const segundos = Math.floor(
-        (diferencia %
-        (1000 * 60)) /
-        1000
-    );
-
-
-    actualizarNumero("days", dias);
-    actualizarNumero("hours", horas);
-    actualizarNumero("minutes", minutos);
-    actualizarNumero("seconds", segundos);
-
-}
-
-
-actualizarCuentaRegresiva();
-
-setInterval(actualizarCuentaRegresiva, 1000);
-```
-
-}
-
-/* =========================================
-ACTUALIZAR NÚMEROS
-========================================= */
-
-function actualizarNumero(id, numero) {
-
-```
-const elemento = document.getElementById(id);
-
-if (!elemento) return;
-
-elemento.textContent =
-    String(numero).padStart(2, "0");
-```
-
-}
-
-/* =========================================
-ACTIVAR MÚSICA AL PRIMER TOQUE
-========================================= */
-
-document.addEventListener("pointerdown", () => {
-
-```
-if (music && music.paused) {
-
-    intentarMusica();
-
-}
-```
-
-}, { once: true });
-
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+});
