@@ -49,6 +49,7 @@ align-items: center;
 background: rgba(0, 0, 0, 0.18);
 backdrop-filter: blur(4px);
 padding: 20px;
+z-index: 100000;
 }
 
 #enterButton {
@@ -96,6 +97,7 @@ CONTENIDO PRINCIPAL
 ========================================= */
 
 #mainContent {
+display: none;
 position: relative;
 min-height: 100vh;
 padding: 80px 20px 40px;
