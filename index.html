@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación Studio 54</title>
+  <title>María Luisa | 70 Años</title>
   
-  <!-- Tipografía Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
@@ -14,10 +13,9 @@
 </head>
 <body>
 
-  <!-- PANTALLA 1: VIDEO INTRO Y BOTÓN -->
   <div id="loader">
-    <video id="introVideo" autoplay muted playsinline>
-      <source src="intro.mp4" type="video/mp4">
+    <video id="introVideo" autoplay muted playsinline preload="auto">
+      <source src="video.mp4" type="video/mp4">
       Tu navegador no soporta el formato de video.
     </video>
 
@@ -26,7 +24,6 @@
     </div>
   </div>
 
-  <!-- PANTALLA 2: CONTENIDO PRINCIPAL -->
   <div id="mainContent">
     <div class="backgroundGlow"></div>
     <div class="backgroundGlow2"></div>
@@ -48,7 +45,6 @@
       <p class="subtitle">¡Una noche de luces, música disco y mucha fiesta! Prepárate para bailar y pasar un momento inolvidable.</p>
     </header>
 
-    <!-- CUENTA REGRESIVA -->
     <section class="countdownSection">
       <h3>FALTAN POCOS DÍAS</h3>
       <div class="countdown">
@@ -59,26 +55,24 @@
       </div>
     </section>
 
-    <!-- INFORMACIÓN DEL EVENTO -->
     <div class="infoCard">
       <h2>DETALLES DEL EVENTO</h2>
       
       <div class="item">
         <h4>FECHA Y HORA</h4>
-        <p>Sábado, 10 de Octubre | 2:00 PM</p>
+        <p>Sábado 10 de octubre | 2:00 PM</p>
       </div>
 
       <div class="item">
         <h4>LUGAR</h4>
         <p>Terraza Newman Solares</p>
-        <a href="https://maps.google.com" target="_blank" class="button">VER EN GOOGLE MAPS</a>
+        <a href="https://maps.app.goo.glsGBqtBpAD26JnqQc6?g_st=aw" target="_blank" class="button">📍 VER EN GOOGLE MAPS</a>
       </div>
     </div>
 
-    <!-- BOTÓN DE CONFIRMACIÓN -->
     <div class="buttons">
       <p class="confirmationText">¿Nos acompañas a celebrar?</p>
-      <a href="https://wa.me/" target="_blank" class="confirmButton">CONFIRMAR ASISTENCIA POR WHATSAPP</a>
+      <a href="https://wa.me/5213310677989?text=Hola,%20confirmo%20mi%20asistencia.%20Mi%20acompañante%20será:%20________________." target="_blank" class="confirmButton">💬 CONFIRMAR ASISTENCIA POR WHATSAPP</a>
     </div>
 
     <footer>
@@ -87,10 +81,8 @@
     </footer>
   </div>
 
-  <!-- AUDIO DE FONDO -->
-  <audio id="bgMusic" src="musica.mp3" preload="auto" loop></audio>
+  <audio id="bgMusic" src="dancingqueen.mp3" preload="auto" loop></audio>
 
-  <!-- CORRECCIÓN DE NOMBRE EN EL SCRIPT -->
   <script src="script.js"></script>
 </body>
 </html>
