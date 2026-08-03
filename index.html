@@ -1,105 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación María Luisa</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>María Luisa 70 años</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Georgia", serif;
-      background: linear-gradient(135deg, #111, #5a3a1a);
-      color: white;
-      text-align: center;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+<style>
+body {
+  margin: 0;
+  background: #000;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+}
 
-    .invitacion {
-      background: rgba(0,0,0,0.75);
-      padding: 40px;
-      border-radius: 25px;
-      max-width: 500px;
-      box-shadow: 0 0 30px #d4af37;
-      border: 2px solid #d4af37;
-    }
+#videoPantalla {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
 
-    h1 {
-      font-size: 55px;
-      color: #d4af37;
-      margin-bottom: 10px;
-      letter-spacing: 3px;
-    }
+#botonEntrar {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(45deg, #ff7b00, #ff00aa);
+  color: white;
+  padding: 18px 35px;
+  border-radius: 40px;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+}
 
-    h2 {
-      font-size: 25px;
-      font-weight: normal;
-    }
+#invitacion {
+  display: none;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #6a0dad, #ff4da6);
+  min-height: 100vh;
+}
 
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
+h1 {
+  font-size: 45px;
+}
 
-    button {
-      background: #d4af37;
-      color: black;
-      border: none;
-      padding: 15px 30px;
-      border-radius: 30px;
-      font-size: 18px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
+.tarjeta {
+  background: rgba(255,255,255,0.15);
+  padding: 25px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+</style>
 
-    button:hover {
-      transform: scale(1.05);
-    }
-
-    .brillo {
-      animation: brillo 2s infinite alternate;
-    }
-
-    @keyframes brillo {
-      from {
-        text-shadow: 0 0 5px #fff;
-      }
-      to {
-        text-shadow: 0 0 25px #d4af37;
-      }
-    }
-  </style>
 </head>
 
 <body>
 
-<div class="invitacion">
+<video id="videoPantalla" autoplay muted>
+  <source src="video.mp4" type="video/mp4">
+</video>
 
-  <h1 class="brillo">María Luisa</h1>
+<button id="botonEntrar" onclick="entrar()">
+  ✨ Entrar a la invitación ✨
+</button>
 
-  <h2>✨ Estás invitado a una noche inolvidable ✨</h2>
 
-  <p>
-    Acompáñanos a celebrar un momento muy especial
-    con una fiesta inspirada en los años 70.
-  </p>
+<div id="invitacion">
 
-  <p>
-    🕺 Música • ✨ Luces • 🎶 Diversión
-  </p>
+<h1>🪩 María Luisa 🪩</h1>
 
-  <p>
-    Próximamente más detalles...
-  </p>
+<h2>70 años de alegría y recuerdos</h2>
 
-  <button onclick="alert('¡Gracias por confirmar tu asistencia!')">
-    Confirmar asistencia
-  </button>
+<div class="tarjeta">
+<p>📅 Fecha: Próximamente</p>
+<p>⏰ Hora: 2:00 p.m.</p>
+<p>🎶 Fiesta estilo años 70</p>
+<p>✨ Una tarde llena de música y diversión</p>
+</div>
 
 </div>
+
+
+<script>
+
+let video = document.getElementById("videoPantalla");
+let boton = document.getElementById("botonEntrar");
+
+video.onended = function(){
+  video.style.display="none";
+  boton.style.display="block";
+}
+
+function entrar(){
+  boton.style.display="none";
+  document.getElementById("invitacion").style.display="block";
+}
+
+</script>
 
 </body>
 </html>
