@@ -3,102 +3,917 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>María Luisa 70 años</title>
 
-<style>
-body {
-  margin: 0;
-  background: #000;
-  font-family: Arial, sans-serif;
-  color: white;
-  text-align: center;
-}
+<title>María Luisa | 70 Años</title>
 
-#videoPantalla {
-  width: 100%;
-  height: 100vh;
-  object-fit: contain;
-}
+<link rel="stylesheet" href="style.css">
 
-#botonEntrar {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: linear-gradient(45deg, #ff7b00, #ff00aa);
-  color: white;
-  padding: 18px 35px;
-  border-radius: 40px;
-  font-size: 22px;
-  border: none;
-  cursor: pointer;
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-#invitacion {
-  display: none;
-  padding: 40px 20px;
-  background: linear-gradient(135deg, #6a0dad, #ff4da6);
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 45px;
-}
-
-.tarjeta {
-  background: rgba(255,255,255,0.15);
-  padding: 25px;
-  border-radius: 20px;
-  margin-top: 20px;
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<video id="videoPantalla" autoplay muted>
-  <source src="video.mp4" type="video/mp4">
+<div id="loader">
+
+<video
+id="introVideo"
+autoplay
+playsinline
+preload="auto">
+
+<source src="video.mp4" type="video/mp4">
+
 </video>
 
-<button id="botonEntrar" onclick="entrar()">
-  ✨ Entrar a la invitación ✨
+<audio
+id="introMusic"
+autoplay
+loop>
+
+<source src="dancingqueen.mp3" type="audio/mpeg">
+
+</audio>
+
+<div id="enterContainer">
+
+<button id="enterButton">
+
+✨ ENTRAR A LA INVITACIÓN ✨
+
 </button>
 
-
-<div id="invitacion">
-
-<h1>🪩 María Luisa 🪩</h1>
-
-<h2>70 años de alegría y recuerdos</h2>
-
-<div class="tarjeta">
-<p>📅 Fecha: Próximamente</p>
-<p>⏰ Hora: 2:00 p.m.</p>
-<p>🎶 Fiesta estilo años 70</p>
-<p>✨ Una tarde llena de música y diversión</p>
 </div>
 
 </div>
 
+<div id="mainContent">
 
-<script>
+<div class="backgroundGlow"></div>
 
-let video = document.getElementById("videoPantalla");
-let boton = document.getElementById("botonEntrar");
+<div class="backgroundGlow2"></div>
 
-video.onended = function(){
-  video.style.display="none";
-  boton.style.display="block";
-}
+<div class="backgroundGlow3"></div>
 
-function entrar(){
-  boton.style.display="none";
-  document.getElementById("invitacion").style.display="block";
-}
+<header>
 
-</script>
+<h3 class="miniTitle">
+
+UNA TARDE PARA RECORDAR
+
+</h3>
+
+<h1>
+
+MARÍA LUISA
+
+</h1>
+
+<h2>
+
+70 AÑOS
+
+</h2>
+
+<p class="subtitle">
+
+Una celebración llena de alegría,
+música y momentos inolvidables.
+
+</p>
+
+</header>
+
+<section class="countdownSection">
+
+<h3>
+
+FALTAN
+
+</h3>
+
+<div class="countdown">
+
+<div>
+
+<span id="days">
+
+00
+
+</span>
+
+<p>Días</p>
+
+</div>
+
+<div>
+
+<span id="hours">
+
+00
+
+</span>
+
+<p>Horas</p>
+
+</div>
+
+<div>
+
+<span id="minutes">
+
+00
+
+</span>
+
+<p>Minutos</p>
+
+</div>
+
+<div>
+
+<span id="seconds">
+
+00
+
+</span>
+
+<p>Segundos</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="infoCard">
+
+<h2>
+
+INFORMACIÓN
+
+</h2>
+
+<div class="item">
+
+<h4>
+
+📅 Fecha
+
+</h4>
+
+<p>
+
+Sábado 10 de octubre
+
+</p>
+
+</div>
+
+<div class="item">
+
+<h4>
+
+🕑 Hora
+
+</h4>
+
+<p>
+
+2:00 PM
+
+</p>
+
+</div>
+
+<div class="item">
+
+<h4>
+
+📍 Lugar
+
+</h4>
+
+<p>
+
+Terraza Newman Solares
+
+</p>
+
+<a
+class="button"
+target="_blank"
+href="https://maps.app.goo.glsGBqtBpAD26JnqQc6?g_st=aw">
+
+ABRIR UBICACIÓN
+
+</a>
+
+</div>
+
+</section>
+
+<section class="buttons">
+
+<a
+
+class="confirmButton"
+
+target="_blank"
+
+href="https://wa.me/5213310677989?text=Hola,%20confirmo%20mi%20asistencia.%20Mi%20acompañante%20será:%20________________.">
+
+CONFIRMAR ASISTENCIA
+
+</a>
+
+</section>
+
+<footer>
+
+Hecho especialmente para celebrar
+los 70 años de María Luisa.
+
+</footer>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
+/*==========================
+      STYLE.CSS
+==========================*/
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:#060606;
+color:white;
+overflow-x:hidden;
+}
+
+/* VIDEO */
+
+#loader{
+position:fixed;
+inset:0;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+overflow:hidden;
+}
+
+#introVideo{
+width:100%;
+height:100%;
+object-fit:contain;
+background:black;
+}
+
+#enterContainer{
+position:absolute;
+display:none;
+justify-content:center;
+align-items:center;
+inset:0;
+backdrop-filter:blur(8px);
+}
+
+#enterButton{
+
+padding:22px 45px;
+
+font-size:22px;
+
+font-weight:700;
+
+letter-spacing:2px;
+
+border:none;
+
+border-radius:60px;
+
+cursor:pointer;
+
+color:white;
+
+background:linear-gradient(90deg,#ff00b7,#ff8a00);
+
+box-shadow:
+
+0 0 25px #ff00b7,
+
+0 0 60px #ff00b7;
+
+transition:.35s;
+
+animation:pulse 1.5s infinite;
+
+}
+
+#enterButton:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+
+0 0 30px white,
+
+0 0 90px #ff00b7;
+
+}
+
+/*======================*/
+
+#mainContent{
+
+display:none;
+
+min-height:100vh;
+
+padding:70px 20px;
+
+text-align:center;
+
+position:relative;
+
+overflow:hidden;
+
+background:
+
+linear-gradient(180deg,#090909,#170028,#0b0012);
+
+}
+
+/* Luces */
+
+.backgroundGlow,
+.backgroundGlow2,
+.backgroundGlow3{
+
+position:absolute;
+
+border-radius:50%;
+
+filter:blur(120px);
+
+opacity:.35;
+
+animation:float 12s infinite ease-in-out;
+
+}
+
+.backgroundGlow{
+
+width:350px;
+height:350px;
+background:#ff0088;
+
+top:-100px;
+left:-100px;
+
+}
+
+.backgroundGlow2{
+
+width:320px;
+height:320px;
+background:#00c3ff;
+
+right:-80px;
+top:220px;
+
+animation-delay:2s;
+
+}
+
+.backgroundGlow3{
+
+width:260px;
+height:260px;
+background:#ffd000;
+
+bottom:-100px;
+left:50%;
+
+transform:translateX(-50%);
+
+animation-delay:5s;
+
+}
+
+/*======================*/
+
+header{
+
+position:relative;
+
+z-index:2;
+
+}
+
+.miniTitle{
+
+font-size:16px;
+
+letter-spacing:6px;
+
+color:#ffd700;
+
+margin-bottom:15px;
+
+}
+
+h1{
+
+font-size:74px;
+
+font-weight:900;
+
+letter-spacing:5px;
+
+text-shadow:
+
+0 0 18px #ff00cc,
+
+0 0 35px #ff00cc;
+
+}
+
+h2{
+
+font-size:36px;
+
+margin-top:10px;
+
+font-weight:700;
+
+color:#ffd700;
+
+}
+
+.subtitle{
+
+margin:35px auto;
+
+max-width:700px;
+
+line-height:1.9;
+
+font-size:20px;
+
+opacity:.95;
+
+}
+
+/*======================*/
+
+.countdownSection{
+
+margin-top:70px;
+
+}
+
+.countdown{
+
+display:flex;
+
+justify-content:center;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+margin-top:30px;
+
+}
+
+.countdown div{
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+backdrop-filter:blur(15px);
+
+padding:25px;
+
+border-radius:18px;
+
+min-width:120px;
+
+box-shadow:0 0 25px rgba(255,255,255,.08);
+
+}
+
+.countdown span{
+
+display:block;
+
+font-size:46px;
+
+font-weight:900;
+
+color:#ffd700;
+
+}
+
+.countdown p{
+
+margin-top:8px;
+
+font-size:15px;
+
+letter-spacing:2px;
+
+}
+
+/*======================*/
+
+.infoCard{
+
+margin:90px auto;
+
+max-width:800px;
+
+padding:45px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+border-radius:28px;
+
+box-shadow:0 0 30px rgba(255,255,255,.12);
+
+}
+
+.item{
+
+margin-top:35px;
+
+}
+
+.item h4{
+
+font-size:25px;
+
+margin-bottom:10px;
+
+color:#ffd700;
+
+}
+
+.item p{
+
+font-size:20px;
+
+}
+
+.button{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:15px 35px;
+
+border-radius:40px;
+
+background:#00b7ff;
+
+text-decoration:none;
+
+font-weight:700;
+
+color:white;
+
+transition:.35s;
+
+}
+
+.button:hover{
+
+transform:scale(1.05);
+
+}
+
+/*======================*/
+
+.buttons{
+
+margin:70px 0;
+
+}
+
+.confirmButton{
+
+display:inline-block;
+
+padding:22px 45px;
+
+border-radius:60px;
+
+text-decoration:none;
+
+font-size:22px;
+
+font-weight:700;
+
+color:white;
+
+background:
+
+linear-gradient(90deg,#ff008c,#ffb300);
+
+box-shadow:
+
+0 0 25px #ff008c;
+
+transition:.35s;
+
+}
+
+.confirmButton:hover{
+
+transform:scale(1.08);
+
+}
+
+/*======================*/
+
+footer{
+
+padding:40px;
+
+opacity:.7;
+
+font-size:15px;
+
+}
+
+/*======================*/
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.06);
+
+}
+
+}
+
+@keyframes float{
+
+50%{
+
+transform:
+
+translateY(40px)
+
+translateX(30px);
+
+}
+
+}
+
+/*======================*/
+
+@media(max-width:768px){
+
+h1{
+
+font-size:50px;
+
+}
+
+h2{
+
+font-size:28px;
+
+}
+
+.subtitle{
+
+font-size:17px;
+
+}
+
+.countdown div{
+
+min-width:90px;
+
+padding:18px;
+
+}
+
+.countdown span{
+
+font-size:34px;
+
+}
+
+.infoCard{
+
+padding:28px;
+
+}
+
+#enterButton{
+
+font-size:18px;
+
+padding:18px 28px;
+
+}
+
+}
+/*==========================
+        SCRIPT.JS
+==========================*/
+
+const video = document.getElementById("introVideo");
+const loader = document.getElementById("loader");
+const enterContainer = document.getElementById("enterContainer");
+const enterButton = document.getElementById("enterButton");
+const mainContent = document.getElementById("mainContent");
+const music = document.getElementById("introMusic");
+
+
+// Intentar iniciar música automáticamente
+window.addEventListener("load", () => {
+
+    music.volume = 0.35;
+
+    let playMusic = music.play();
+
+    if(playMusic !== undefined){
+
+        playMusic.catch(() => {
+
+            console.log("El navegador bloqueó el audio automático");
+
+        });
+
+    }
+
+});
+
+
+// Cuando termina el video aparece el botón
+video.addEventListener("ended", () => {
+
+    enterContainer.style.display = "flex";
+
+});
+
+
+// Si el video no carga correctamente
+video.addEventListener("error", () => {
+
+    enterContainer.style.display = "flex";
+
+});
+
+
+// Entrar a la invitación
+enterButton.addEventListener("click", () => {
+
+
+    loader.style.opacity = "0";
+
+
+    setTimeout(()=>{
+
+
+        loader.style.display = "none";
+
+
+        mainContent.style.display = "block";
+
+
+        music.play();
+
+
+        iniciarCuentaRegresiva();
+
+
+    },800);
+
+
+});
+
+
+// Cuenta regresiva
+function iniciarCuentaRegresiva(){
+
+
+    const fechaEvento = new Date("October 10, 2026 14:00:00").getTime();
+
+
+
+    setInterval(()=>{
+
+
+        const ahora = new Date().getTime();
+
+
+        const diferencia = fechaEvento - ahora;
+
+
+
+        if(diferencia <= 0){
+
+            document.getElementById("days").innerHTML="00";
+
+            document.getElementById("hours").innerHTML="00";
+
+            document.getElementById("minutes").innerHTML="00";
+
+            document.getElementById("seconds").innerHTML="00";
+
+            return;
+
+        }
+
+
+
+        const dias = Math.floor(
+            diferencia /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+        const horas = Math.floor(
+            (diferencia %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+
+        const minutos = Math.floor(
+            (diferencia %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+
+        const segundos = Math.floor(
+            (diferencia %
+            (1000 * 60)) /
+            1000
+        );
+
+
+
+        document.getElementById("days").innerHTML =
+        dias.toString().padStart(2,"0");
+
+
+        document.getElementById("hours").innerHTML =
+        horas.toString().padStart(2,"0");
+
+
+        document.getElementById("minutes").innerHTML =
+        minutos.toString().padStart(2,"0");
+
+
+        document.getElementById("seconds").innerHTML =
+        segundos.toString().padStart(2,"0");
+
+
+
+    },1000);
+
+
+}
+
+
+// Efecto al tocar la pantalla si el navegador bloqueó audio
+document.addEventListener("click",()=>{
+
+    if(music.paused){
+
+        music.play();
+
+    }
+
+});
