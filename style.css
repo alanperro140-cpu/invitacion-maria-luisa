@@ -752,3 +752,27 @@ RESPETO A REDUCCIÓN DE MOVIMIENTO
 
 }
 
+#startOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100001;
+}
+
+#startMediaBtn {
+  border: 2px solid var(--gold, #ffd700);
+  padding: 18px 32px;
+  border-radius: 50px;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(45deg, #ff007f, #8a2be2);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  box-shadow: 0 0 25px #ff007f, 0 0 40px #00f3ff;
+  animation: discoPulse 1.5s infinite;
+}
